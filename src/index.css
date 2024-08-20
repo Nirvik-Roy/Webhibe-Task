@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html::-webkit-scrollbar{
+  display: none;
+}
+a{
+  list-style: none;
+  color: rgb(255, 255, 255);
+  font-size: medium;
+  font-weight: 600;
+  display: block;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.menu-contain{
+  width: 95%;
+  display: flex;
+  justify-content: center;
+}
+.menu-contain:hover{
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
