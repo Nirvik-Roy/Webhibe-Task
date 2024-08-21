@@ -12,6 +12,11 @@ import Loader from '../Loader/Loader'
 const Home = () => {
 
     const [modal,setmodal]=useState(false)
+
+    const [top,setop]=useState(0)
+    const [bottom,setbottom]=useState(0)
+    const [middle,setmiddle]=useState('')
+    const [margin,setmargin]=useState(7)
      useGSAP(()=>{
 
         let tl=gsap.timeline()
@@ -23,12 +28,28 @@ const Home = () => {
 
      })
 
+  const setnav=()=>{
+    setmiddle('none')
+    setop(135)
+    setbottom(-135)
+    setmargin(0)
+    setmodal(true)
+  }
+  const setnav1=()=>{
+    setmiddle('block')
+    setop(0)
+    setbottom(0)
+    setmargin(7)
+    setmodal(false)
+  }
+
      const Navmenu=()=>{
          return<>
             <div className='menu-bar-div'>
-                     <div className='d-flex justify-content-end me-2 mt-2'>
-                     <i onClick={(()=>setmodal(false))} className="fa-solid fa-x text-light"></i>
-                     
+                     <div onClick={(()=>setnav1())} className='d-flex cross-menu-bar justify-content-end align-items-end flex-column me-2 mt-4'>
+                     {/* <i onClick={(()=>setnav1())} className="fa-solid fa-x text-light"></i> */}
+                     <div onClick={(()=>setnav1())} className='spinner top' style={{transform:'rotate(135deg)'}}></div>
+                     <div onClick={(()=>setnav1())} className='spinner bottom' style={{transform:'rotate(-135deg)',margin:'0px'}}></div>
                      </div>
                      <div className=' menu-bar-contains d-flex justify-content-center align-items-center flex-column'>
                          <div className='menu-contain'>
@@ -95,8 +116,11 @@ const Home = () => {
                     <img src={logo} className='logo' alt='logo'></img>
                 </div>
                 <div className='menu-bar-main'>
-                    <div onClick={(()=>setmodal(true))} className='menu-bar'>
-                    <i className="fa-solid fa-bars "></i>
+                    <div onClick={(()=>setnav())} className='menu-bar d-flex'>
+                    {/* <i className="fa-solid fa-bars "></i> */}
+                    <div className='spinner top' style={{transform:`rotate(${top}deg)`,marginTop:'0px'}}></div>
+                    <div className='spinner middle' style={{display:`${middle}`}}></div>
+                    <div className='spinner bottom' style={{transform:`rotate(${bottom}deg)`, marginTop:`${margin}px` }}></div>
                     </div>
                 </div>
                 

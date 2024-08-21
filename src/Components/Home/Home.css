@@ -36,6 +36,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.cross-menu-bar{
+    width: 50px;
+    transform: translateX(550%);
 }
 .fa-bars{
     color: white;
@@ -76,6 +81,17 @@
     margin-left: 20px;
     margin-top: 15px;
 }
+.spinner{
+    width: 50%;
+    height: 1px ;
+    background-color: white;
+    transition: 0.5s all ease-in-out;
+    
+}
+.spinner.middle,
+.spinner.bottom{
+    margin-top: 7px;
+}
 .menu-bar-div{
     width: 25%;
     height: 100vh;
@@ -84,18 +100,22 @@
     position: absolute;
     top: 0;
     right: 0;
-    animation: transform 0.4s linear 1;
-    transition: all 0.5 linear;
+    animation: transform 0.5s linear 1;
+    transition: all 1s ease-in-out;
 }
+
 @keyframes transform {
     0%{
-        transform: translateX(50%);
+        transform: translateX(150%);
     }100%{
         transform: translateX(0%);
     }
 }
 .fa-x {
-    font-size: 25px;
+    font-size: 20px;
+    font-weight:lighter;
+    margin-right: 10px;
+    
 }
 .menu-bar-contains{
     margin-top: 10px;
